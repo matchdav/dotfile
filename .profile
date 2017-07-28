@@ -63,23 +63,32 @@ function sync () {
   git pull origin $1 && git push origin $1;
 }
 
-# docker commands
+# DOCKER
 
+# docker-compose shortcut
 function dkrc() {
   docker-compose $@;
 }
+
+# restart docker network
 function dkrrs() {
   dkrc restart;
 }
+# start docker network
 function dkrs() {
   dkrc start;
 }
+# start docker network in detached mode
 function up() {
   dkrc up -d;
 }
+
+# shut down docker network
 function down() {
   dkrc down;
 }
+
+# ssh into docker container
 function dsh() {
   docker exec -ti $1 bash
 }
